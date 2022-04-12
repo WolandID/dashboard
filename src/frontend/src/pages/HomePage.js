@@ -1,8 +1,4 @@
 import { React, useEffect, useState } from 'react'
-import {Link, useParams} from "react-router-dom";
-import {MatchDetailCard} from "../components/MatchDetailCard";
-import {MatchSmallCard} from "../components/MatchSmallCard";
-import { PieChart } from 'react-minimal-pie-chart';
 import {TeamTile} from "../components/TeamTile";
 
 import './HomePage.scss'
@@ -14,7 +10,7 @@ export const HomePage = () => {
     useEffect(
         ()=>{
             const fetchAllTeams = async() =>{
-               const response = await fetch(`http://localhost:8080/team`);
+               const response = await fetch(`${process.env.REACT_APP_API_URL}/team`);
                const data = await response.json();
                setTeams(data);
         };
@@ -32,7 +28,7 @@ export const HomePage = () => {
                 <h1>English Premier League Dashboard(1993-2019)</h1>
             </div>
              <div className="team-tile">
-                {teams.map(team=><TeamTile teamName={team.teamName}/> )}
+                {teams.map(team=><TeamTile key={team.id} teamName={team.teamName}/> )}
              </div>
         </div>
     );

@@ -7,7 +7,7 @@ import {HomePage} from "./pages/HomePage";
 function App() {
   return (
     <div className="App">
-        <Routes>
+         <Routes>
             <Route path="/teams/:teamName/matches/:year"
                    element= {<MatchPage />}/>
             <Route path="/teams/:teamName"
@@ -16,7 +16,7 @@ function App() {
                        element= {<HomePage />}/>
 
         </Routes>
-    </div>
+      </div>
   );
 }
 
